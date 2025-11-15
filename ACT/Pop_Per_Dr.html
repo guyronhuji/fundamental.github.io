@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>Interactive Comparison Chart</title>
+    <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+    <style>
+      body {
+        font-family: sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f5f5f5;
+      }
+      .container {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 20px;
+        padding: 20px;
+      }
+      .controls {
+        min-width: 240px;
+      }
+      #catSelect {
+        width: 230px;
+      }
+      #chartWrapper {
+        flex: 1;
+        min-width: 400px;
+      }
+      #chartFrame {
+        border: 2px solid #444;
+        border-radius: 4px;
+        padding: 10px;
+        background-color: #ffffff;
+        box-sizing: border-box;
+      }
+      #chart {
+        width: 100%;
+        height: 550px;
+      }
+      label {
+        display: block;
+        margin-top: 10px;
+      }
+      #saveBtn {
+        margin-top: 10px;
+        padding: 6px 12px;
+        border-radius: 4px;
+        border: 1px solid #444;
+        background-color: #e0e0e0;
+        cursor: pointer;
+      }
+      #saveBtn:hover {
+        background-color: #d0d0d0;
+      }
+    </style>
+</head>
+<body>
+<div class="container">
+  <div class="controls">
+    <label for="catSelect">קטגוריות (בחר/י כמה):</label>
+    <select id="catSelect" multiple size="15"></select>
+
+    <label>
+      <input type="checkbox" id="logCheck">
+      ציר Y לוגריתמי
+    </label>
+  </div>
+
+  <div id="chartWrapper">
+    <div id="chartFrame">
+      <div id="chart"></div>
+    </div>
+    <button id="saveBtn">שמור תרשים כ-PNG</button>
+  </div>
+</div>
+
+<script>
+  // --- Data from Python ---
+  const payload = {"index": ["רפואה פנימית", "יילוד וגינקולוגיה", "רפואת המשפחה", "מחלות עיניים", "כירורגיה אורתופדית", "דרמטולוגיה-מחלות עור ומין", "גסטרואנטרולוגיה", "כירורגיה כללית", "פסיכיאטריה", "רפואת ילדים", "אנדוקרינולוגיה", "קרדיולוגיה", "מחלות א.א.ג. וכירורגיית ראש-צוואר", "מחלות אף אוזן וגרון", "גריאטריה", "מחלות ריאה", "כירורגיה אורולוגית", "כירורגית ילדים", "נוירולוגית ילדים והתפתחות הילד", "רפואה פיסיקלית ושיקום", "כירורגיה של היד", "המטולוגיה", "כירורגיה פלסטית ואסתטית", "כירורגית כלי דם", "ניאונטולוגיה", "פסיכיאטריה של הילד והמתבגר", "מחלות זיהומיות", "מחלות ריאה ילדים", "הימטואונקולוגיה ילדים", "נוירולוגיית ילדים", "רפואה תעסוקתית", "טיפול נמרץ כללי", "נפרולוגיה", "בריאות הציבור"], "columns": ["Pop_per_Dr_W", "Pop_per_Dr_E"], "data": [[2128, 8595], [2356, 16117], [3514, 27629], [7242, 42978], [8025, 19340], [13197, 128936], [13811, 96702], [13811, 18419], [14484, 96702], [15227, 48351], [16496, 96702], [17467, 21489], [19157, 29754], [19157, -1], [20478, 96702], [22841, 96702], [25820, 55258], [42420, 96702], [42420, 128936], [45683, -1], [53989, -1], [59388, 77362], [59388, 193405], [59388, 128936], [59388, 386810], [65986, -1], [74235, -1], [74235, 128936], [84840, 386810], [84840, -1], [84840, -1], [118776, -1], [118776, 96702], [148470, -1]], "ylabel": "ערך"};
+
+  const categories = payload.index;
+  const colNames   = payload.columns;  // [col1, col2]
+  const data       = payload.data;     // [[v1, v2], ...]
+  const ylabel     = payload.ylabel;
+
+  // Helper: simple RTL by reversing the string
+  function rtl(s) {
+    return s.split("").reverse().join("");
+  }
+
+  const select   = document.getElementById("catSelect");
+  const logCheck = document.getElementById("logCheck");
+  const chartDiv = document.getElementById("chart");
+  const saveBtn  = document.getElementById("saveBtn");
+
+  // Populate multi-select
+  categories.forEach((cat, i) => {
+    const opt = document.createElement("option");
+    opt.value = i;        // index into data
+    opt.textContent = cat;
+    opt.selected = true;  // selected by default
+    select.appendChild(opt);
+  });
+
+  function getSelectedIndices() {
+    const selected = [];
+    for (let opt of select.options) {
+      if (opt.selected) {
+        selected.push(parseInt(opt.value));
+      }
+    }
+    if (selected.length === 0) {
+      return categories.map((_, i) => i);
+    }
+    return selected;
+  }
+
+  function updatePlot() {
+    const idxs = getSelectedIndices();
+
+    const xLabels = idxs.map(i => categories[i]);
+    const col1Vals = idxs.map(i => data[i][0]);
+    const col2Vals = idxs.map(i => data[i][1]);
+
+    const trace1 = {
+      x: xLabels,
+      y: col1Vals,
+      type: 'bar',
+      name: colNames[0],
+      marker: { color: '#d62728' }  // red
+    };
+
+    const trace2 = {
+      x: xLabels,
+      y: col2Vals,
+      type: 'bar',
+      name: colNames[1],
+      marker: { color: '#1f77b4' }  // blue
+    };
+
+    const layout = {
+      barmode: 'group',
+      xaxis: {
+        tickangle: -45
+      },
+      yaxis: {
+        title: ylabel,
+        type: logCheck.checked ? 'log' : 'linear'
+      },
+      margin: {
+        l: 60, r: 20, t: 20, b: 120
+      }
+    };
+
+    Plotly.newPlot(chartDiv, [trace1, trace2], layout, {responsive: true});
+  }
+
+  // Initial plot
+  updatePlot();
+
+  // Update on controls change
+  select.addEventListener('change', updatePlot);
+  logCheck.addEventListener('change', updatePlot);
+
+  // Save current plot as PNG
+  saveBtn.addEventListener('click', function() {
+    Plotly.downloadImage(chartDiv, {
+      format: 'png',
+      filename: 'comparison_chart'
+    });
+  });
+</script>
+
+</body>
+</html>
