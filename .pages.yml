@@ -1,0 +1,82 @@
+repo: guyronhuji/fundamental.github.io
+branch: main
+media:
+  input: images
+  output: /images
+
+content:
+  - name: news
+    label: News & Announcements
+    path: content/news.json
+    type: file
+    list: true
+    view:
+      fields: [title, date, category]
+    fields:
+      - name: title
+        label: Title
+        type: string
+      - name: date
+        label: Date
+        type: date
+      - name: content
+        label: Content
+        type: text
+      - name: category
+        label: Category
+        type: select
+        options:
+          - announcement
+          - publication
+          - conference
+          - award
+      - name: link
+        label: Link URL
+        type: string
+        required: false
+      - name: pdf
+        label: PDF URL
+        type: string
+        required: false
+      - name: image
+        label: Image / Poster
+        type: image
+        required: false
+
+  - name: home
+    label: Home Introduction
+    path: content/home-intro.md
+    type: file
+    fields:
+      - name: body
+        label: Content
+        type: rich-text
+
+  - name: biography
+    label: Biography
+    path: content/Biography.md
+    type: file
+    fields:
+      - name: body
+        label: Content
+        type: rich-text
+
+  - name: research
+    label: Research Pages
+    path: content/research
+    type: collection
+    extension: md
+    fields:
+      - name: body
+        label: Content
+        type: rich-text
+
+  - name: activism
+    label: Activism Pages
+    path: content/activism
+    type: collection
+    extension: md
+    fields:
+      - name: body
+        label: Content
+        type: rich-text

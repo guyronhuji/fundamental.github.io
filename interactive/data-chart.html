@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experimental Data Chart</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #f8f9fa;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+        .chart-container {
+            position: relative;
+            height: 400px;
+            margin: 20px 0;
+        }
+        canvas {
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+        }
+        .legend {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Experimental Results: Form Factor Measurements</h2>
+        <p>Proton form factor ratio measurements at different momentum transfers</p>
+        
+        <div class="chart-container">
+            <canvas id="chart"></canvas>
+        </div>
+        
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-color" style="background: #3498db;"></div>
+                <span>Our Measurements (2024)</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #e74c3c;"></div>
+                <span>Previous Results</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #2ecc71;"></div>
+                <span>Theoretical Prediction</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('chart');
+        const ctx = canvas.getContext('2d');
+        
+        // Set canvas size
+        canvas.width = 800;
+        canvas.height = 400;
+        
+        // Sample data
+        const data = {
+            ourData: [
+                {q: 0.1, ratio: 0.98, error: 0.02},
+                {q: 0.2, ratio: 0.95, error: 0.015},
+                {q: 0.3, ratio: 0.91, error: 0.02},
+                {q: 0.5, ratio: 0.85, error: 0.025},
+                {q: 0.7, ratio: 0.78, error: 0.03}
+            ],
+            previousData: [
+                {q: 0.15, ratio: 0.96, error: 0.04},
+                {q: 0.35, ratio: 0.89, error: 0.05},
+                {q: 0.6, ratio: 0.80, error: 0.06}
+            ],
+            theory: [
+                {q: 0, ratio: 1.0},
+                {q: 0.2, ratio: 0.95},
+                {q: 0.4, ratio: 0.88},
+                {q: 0.6, ratio: 0.81},
+                {q: 0.8, ratio: 0.74}
+            ]
+        };
+        
+        // Chart dimensions
+        const padding = 60;
+        const chartWidth = canvas.width - 2 * padding;
+        const chartHeight = canvas.height - 2 * padding;
+        
+        // Scales
+        const xMax = 0.8;
+        const yMin = 0.7;
+        const yMax = 1.0;
+        
+        function toX(q) {
+            return padding + (q / xMax) * chartWidth;
+        }
+        
+        function toY(ratio) {
+            return canvas.height - padding - ((ratio - yMin) / (yMax - yMin)) * chartHeight;
+        }
+        
+        // Draw axes
+        ctx.strokeStyle = '#2c3e50';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(padding, padding);
+        ctx.lineTo(padding, canvas.height - padding);
+        ctx.lineTo(canvas.width - padding, canvas.height - padding);
+        ctx.stroke();
+        
+        // Draw grid
+        ctx.strokeStyle = '#ecf0f1';
+        ctx.lineWidth = 1;
+        for (let i = 0; i <= 5; i++) {
+            const y = padding + (i / 5) * chartHeight;
+            ctx.beginPath();
+            ctx.moveTo(padding, y);
+            ctx.lineTo(canvas.width - padding, y);
+            ctx.stroke();
+        }
+        
+        // Axis labels
+        ctx.fillStyle = '#2c3e50';
+        ctx.font = '14px sans-serif';
+        ctx.textAlign = 'center';
+        
+        // X-axis label
+        ctx.fillText('Q² (GeV²/c²)', canvas.width / 2, canvas.height - 20);
+        
+        // Y-axis label
+        ctx.save();
+        ctx.translate(20, canvas.height / 2);
+        ctx.rotate(-Math.PI / 2);
+        ctx.fillText('μₚGₑ/Gₘ', 0, 0);
+        ctx.restore();
+        
+        // Y-axis values
+        ctx.textAlign = 'right';
+        ctx.textBaseline = 'middle';
+        for (let i = 0; i <= 5; i++) {
+            const val = yMin + (i / 5) * (yMax - yMin);
+            const y = canvas.height - padding - (i / 5) * chartHeight;
+            ctx.fillText(val.toFixed(2), padding - 10, y);
+        }
+        
+        // X-axis values
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'top';
+        for (let i = 0; i <= 4; i++) {
+            const val = (i / 4) * xMax;
+            const x = padding + (i / 4) * chartWidth;
+            ctx.fillText(val.toFixed(1), x, canvas.height - padding + 10);
+        }
+        
+        // Draw theory line
+        ctx.strokeStyle = '#2ecc71';
+        ctx.lineWidth = 2;
+        ctx.setLineDash([5, 5]);
+        ctx.beginPath();
+        data.theory.forEach((point, i) => {
+            const x = toX(point.q);
+            const y = toY(point.ratio);
+            if (i === 0) ctx.moveTo(x, y);
+            else ctx.lineTo(x, y);
+        });
+        ctx.stroke();
+        ctx.setLineDash([]);
+        
+        // Draw previous data with error bars
+        ctx.strokeStyle = '#e74c3c';
+        ctx.fillStyle = '#e74c3c';
+        data.previousData.forEach(point => {
+            const x = toX(point.q);
+            const y = toY(point.ratio);
+            const errorY = (point.error / (yMax - yMin)) * chartHeight;
+            
+            // Error bar
+            ctx.beginPath();
+            ctx.moveTo(x, y - errorY);
+            ctx.lineTo(x, y + errorY);
+            ctx.stroke();
+            
+            // Point
+            ctx.beginPath();
+            ctx.arc(x, y, 5, 0, Math.PI * 2);
+            ctx.fill();
+        });
+        
+        // Draw our data with error bars
+        ctx.strokeStyle = '#3498db';
+        ctx.fillStyle = '#3498db';
+        data.ourData.forEach(point => {
+            const x = toX(point.q);
+            const y = toY(point.ratio);
+            const errorY = (point.error / (yMax - yMin)) * chartHeight;
+            
+            // Error bar
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.moveTo(x, y - errorY);
+            ctx.lineTo(x, y + errorY);
+            ctx.stroke();
+            
+            // Point
+            ctx.beginPath();
+            ctx.arc(x, y, 6, 0, Math.PI * 2);
+            ctx.fill();
+        });
+    </script>
+</body>
+</html>

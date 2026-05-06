@@ -1,0 +1,43 @@
+[
+  {
+    "date": "2025-06-12",
+    "title": "EZH2 Mutation and Epigenetic Heterogeneity in B-Cell Lymphoma",
+    "content": "In collaboration with the Shema Lab at the Weizmann Institute, we published new findings on how the EZH2-Y646N mutation reshapes chromatin states in diffuse large B-cell lymphoma, using CyTOF-based histone profiling.",
+    "category": "publication",
+    "link": "https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.3003191"
+  },
+  {
+    "date": "2025-09-15",
+    "title": "PyPAS: New Open-Source Tool for Positron Annihilation Spectroscopy",
+    "content": "We released PyPAS, a Python package for Doppler Broadening analysis in positron annihilation spectroscopy, including coincidence filtering, 2D analysis, and positron diffusion modeling.",
+    "category": "publication",
+    "pdf": "https://arxiv.org/pdf/2509.08023.pdf"
+  },
+  {
+    "date": "2025-11-15",
+    "title": "New Website Launched",
+    "content": "We are excited to announce the launch of our new website!",
+    "category": "announcement"
+  },
+  {
+    "date": "2026-02-18",
+    "title": "Beyond Error: Rethinking Bias in Research Practice",
+    "content": "June 22-23, 2026 at Newe Shalom. This workshop brings together scholars from various fields to rethink the role of bias in research practice.",
+    "category": "conference",
+    "image": "/images/BeyondErrorPoster.png"
+  },
+  {
+    "date": "2026-02-18",
+    "title": "MUSE Target Chamber Post Veto Publication",
+    "content": "The paper 'The MUSE Target Chamber Post Veto' is now available on arXiv.",
+    "category": "publication",
+    "pdf": "https://arxiv.org/pdf/2602.10279.pdf"
+  },
+  {
+    "date": "2026-05-06",
+    "title": "The MUSE TCPV Paper is now out",
+    "content": "The MUSE Target Chamber Post Veto,\nNIM A 1090, 171621 (2026)",
+    "category": "publication",
+    "link": "https://www.sciencedirect.com/science/article/pii/S0168900226003475"
+  }
+]
