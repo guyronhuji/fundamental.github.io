@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>Interactive Comparison Chart</title>
+    <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+    <style>
+      body {
+        font-family: sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f5f5f5;
+      }
+      .container {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 20px;
+        padding: 20px;
+      }
+      .controls {
+        min-width: 240px;
+      }
+      #catSelect {
+        width: 230px;
+      }
+      #chartWrapper {
+        flex: 1;
+        min-width: 400px;
+      }
+      #chartFrame {
+        border: 2px solid #444;
+        border-radius: 4px;
+        padding: 10px;
+        background-color: #ffffff;
+        box-sizing: border-box;
+      }
+      #chart {
+        width: 100%;
+        height: 550px;
+      }
+      label {
+        display: block;
+        margin-top: 10px;
+      }
+      #saveBtn {
+        margin-top: 10px;
+        padding: 6px 12px;
+        border-radius: 4px;
+        border: 1px solid #444;
+        background-color: #e0e0e0;
+        cursor: pointer;
+      }
+      #saveBtn:hover {
+        background-color: #d0d0d0;
+      }
+    </style>
+</head>
+<body>
+<div class="container">
+  <div class="controls">
+    <label for="catSelect">קטגוריות (בחר/י כמה):</label>
+    <select id="catSelect" multiple size="15"></select>
+
+    <label>
+      <input type="checkbox" id="logCheck">
+      ציר Y לוגריתמי
+    </label>
+  </div>
+
+  <div id="chartWrapper">
+    <div id="chartFrame">
+      <div id="chart"></div>
+    </div>
+    <button id="saveBtn">שמור תרשים כ-PNG</button>
+  </div>
+</div>
+
+<script>
+  // --- Data from Python ---
+  const payload = {"index": ["אונקולוגיה", "אונקולוגיה מסלול אונקולוגיה רפואית", "אלרגולוגיה ואימונולוגיה קלינית", "אנדוקרינולוגיה", "אנטומיה פתולוגית", "בריאות הציבור", "גנטיקה רפואית", "גסטרואנטרולוגיה", "גריאטריה", "דרמטולוגיה-מחלות עור ומין", "הימטואונקולוגיה ילדים", "המטולוגיה", "הרדמה", "טיפול נמרץ ילדים", "טיפול נמרץ כללי", "יילוד וגינקולוגיה", "כירורגיה אורולוגית", "כירורגיה אורתופדית", "כירורגיה כללית", "כירורגיה פלסטית ואסתטית", "כירורגיה של בית החזה", "כירורגיה של היד", "כירורגית בית החזה - מסלול כירורגית חזה כללית", "כירורגית בית החזה - מסלול כירורגית לב", "כירורגית חזה ולב", "כירורגית ילדים", "כירורגית כלי דם", "מחלות א.א.ג. וכירורגיית ראש-צוואר", "מחלות אף אוזן וגרון", "מחלות זיהומיות", "מחלות מטבוליות", "מחלות עיניים", "מחלות ריאה", "מחלות ריאה ילדים", "מיקרוביולוגיה קלינית", "מנהל רפואי", "מקצועות מעבדה קליניים", "נוירוכירורגיה", "נוירולוגיה", "נוירולוגיית ילדים", "נוירולוגית ילדים והתפתחות הילד", "ניאונטולוגיה", "נפרולוגיה", "פסיכיאטריה", "פסיכיאטריה של הילד והמתבגר", "קרדיולוגיה", "ראומטולוגיה", "רפואה גרעינית", "רפואה דחופה", "רפואה לשיכוך כאב", "רפואה פיסיקלית ושיקום", "רפואה פליאטיבית", "רפואה פנימית", "רפואה תעסוקתית", "רפואת המשפחה", "רפואת ילדים"], "columns": ["Pop/Dr West", "Pop/Dr East"], "data": [[98166, 0], [589000, 0], [98166, 0], [23560, 129333], [589000, 0], [589000, 0], [147250, 0], [16361, 64666], [26772, 129333], [20310, 129333], [196333, 388000], [98166, 97000], [117800, 194000], [589000, 0], [98166, 0], [4118, 16869], [21814, 97000], [6544, 20421], [8414, 32333], [28047, 388000], [294500, 0], [45307, 0], [589000, 0], [196333, 0], [294500, 0], [65444, 194000], [45307, 194000], [22653, 48500], [32722, 0], [58900, 388000], [589000, 0], [8414, 64666], [28047, 77600], [58900, 388000], [589000, 0], [294500, 0], [589000, 0], [25608, 0], [589000, 0], [147250, 0], [58900, 77600], [98166, 388000], [65444, 129333], [34647, 129333], [147250, 388000], [19000, 35272], [117800, 388000], [294500, 0], [117800, 388000], [98166, 194000], [98166, 388000], [589000, 0], [2739, 9948], [196333, 0], [3953, 22823], [19633, 48500]], "ylabel": "ערך"};
+
+  const categories = payload.index;
+  const colNames   = payload.columns;  // [col1, col2]
+  const data       = payload.data;     // [[v1, v2], ...]
+  const ylabel     = payload.ylabel;
+
+  // Helper: simple RTL by reversing the string
+  function rtl(s) {
+    return s.split("").reverse().join("");
+  }
+
+  const select   = document.getElementById("catSelect");
+  const logCheck = document.getElementById("logCheck");
+  const chartDiv = document.getElementById("chart");
+  const saveBtn  = document.getElementById("saveBtn");
+
+  // Populate multi-select
+  categories.forEach((cat, i) => {
+    const opt = document.createElement("option");
+    opt.value = i;        // index into data
+    opt.textContent = cat;
+    opt.selected = true;  // selected by default
+    select.appendChild(opt);
+  });
+
+  function getSelectedIndices() {
+    const selected = [];
+    for (let opt of select.options) {
+      if (opt.selected) {
+        selected.push(parseInt(opt.value));
+      }
+    }
+    if (selected.length === 0) {
+      return categories.map((_, i) => i);
+    }
+    return selected;
+  }
+
+  function updatePlot() {
+    const idxs = getSelectedIndices();
+
+    const xLabels  = idxs.map(i => categories[i]);
+    const col1Vals = idxs.map(i => data[i][0]);
+    const col2Vals = idxs.map(i => data[i][1]);
+
+    const trace1 = {
+      x: xLabels,
+      y: col1Vals,
+      type: 'bar',
+      name: colNames[0],
+      marker: { color: '#d62728' },  // red
+      text: col1Vals.map(v => v == null ? '' : v.toString()),
+      textposition: 'outside',
+      textfont: { size: 12 }
+    };
+
+    const trace2 = {
+      x: xLabels,
+      y: col2Vals,
+      type: 'bar',
+      name: colNames[1],
+      marker: { color: '#1f77b4' },  // blue
+      text: col2Vals.map(v => v == null ? '' : v.toString()),
+      textposition: 'outside',
+      textfont: { size: 12 }
+    };
+
+    const layout = {
+      barmode: 'group',
+      xaxis: {
+        tickangle: -45
+      },
+      yaxis: {
+        title: ylabel,
+        type: logCheck.checked ? 'log' : 'linear'
+      },
+      margin: {
+        l: 60, r: 20, t: 60, b: 120   // a bit more top margin for labels
+      }
+    };
+
+    Plotly.newPlot(chartDiv, [trace1, trace2], layout, {responsive: true});
+  }
+
+  // Initial plot
+  updatePlot();
+
+  // Update on controls change
+  select.addEventListener('change', updatePlot);
+  logCheck.addEventListener('change', updatePlot);
+
+  // Save current plot as PNG
+  saveBtn.addEventListener('click', function() {
+    Plotly.downloadImage(chartDiv, {
+      format: 'png',
+      filename: 'comparison_chart'
+    });
+  });
+</script>
+
+</body>
+</html>
