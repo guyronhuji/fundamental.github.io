@@ -3,19 +3,6 @@ types a panel of protein markers points to, and for inspecting the evidence behi
 each call. It runs entirely in the browser — no server, no network requests — so it
 also works offline once the page has loaded.
 
-**What it covers**
-
-- **160 human cell profiles** across 14 lineage families: T cells, B and plasma cells, NK
-  cells, monocytes and macrophages, dendritic cells, granulocytes and mast cells,
-  blood and progenitors, innate lymphoid cells, endothelium, stroma and mural cells,
-  epithelium and carcinoma, neural and glial cells, muscle, bone and adipose, and
-  pluripotent cultures.
-- **314 markers**, with aliases, cellular compartment, and allotype, subunit and
-  dimer variants kept distinct.
-- **Protein and RNA treated as separate modalities**, so a surface panel is never
-  silently matched against a transcriptional signature.
-- **53 references** behind 128 source entries, linked from each profile.
-
 **Two ways in**
 
 Search by *pattern* to start from the markers you measured and rank the cell types
