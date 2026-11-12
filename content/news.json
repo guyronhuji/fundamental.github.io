@@ -47,5 +47,27 @@
     "category": "publication",
     "link": "https://www.sciencedirect.com/science/article/pii/S0010465526004303",
     "pdf": "https://arxiv.org/pdf/2509.08023"
+  },
+  {
+    "date": "2026-11-11",
+    "title": "Epigenetic heterogeneity in breast tumours informs diagnosis and prognosis",
+    "content": "A collaboration led by Guy Ron (HUJI) and Efrat Shema (Weizmann Institute) has published a large-scale epigenomic study of breast cancer in Nature. Using CyTOF-based single-cell epigenomics, the team identifies a recurrent basal-like subpopulation hidden inside luminal tumours that carries an aggressive epigenetic signature linked to poor prognosis. Extending this finding to blood, they applied the group's EPINUC single-molecule liquid-biopsy platform to detect early-stage luminal breast cancer from plasma with 95% accuracy and to predict five-year recurrence with 81% accuracy in a multi-institutional cohort. Yishai Arieli (Ron lab) and Christina Riemenschneider are co-first authors.",
+    "category": "publication",
+    "link": "https://www.nature.com/articles/s41586-026-11230-y",
+    "pdf": "https://www.nature.com/articles/s41586-026-11230-y.pdf"
+  },
+  {
+    "date": "2026-11-11",
+    "title": "Ynet covers the Nature breast-cancer blood test",
+    "content": "Ynet (Hebrew) features the group's new Nature paper with the Shema Lab at the Weizmann Institute. The article describes how the Ron group approached the single-molecule EPINUC data as an experimental physics problem, using computational tools to find the epigenetic patterns that flag early breast cancer (95% accuracy for tumours under 2 cm) and predict recurrence. Prof. Guy Ron explains that the more prevalent the aggressive cells' epigenetic signature is in a patient's blood, the higher the risk of relapse, allowing 81% accuracy in separating patients whose cancer returned from those who stayed disease-free.",
+    "category": "announcement",
+    "link": "https://www.ynet.co.il/health/article/bksnnvlaze"
+  },
+  {
+    "date": "2026-11-11",
+    "title": "Times of Israel covers the Nature breast-cancer blood test",
+    "content": "The Times of Israel reports on the group's new Nature paper with the Shema Lab at the Weizmann Institute. The article describes the epigenetic liquid biopsy that detects early-stage breast cancer with 95% accuracy and quotes Prof. Guy Ron on predicting recurrence with 81% accuracy from the epigenetic signature of aggressive tumour cells found in the blood.",
+    "category": "announcement",
+    "link": "https://www.timesofisrael.com/israeli-blood-test-detects-early-breast-cancer-with-95-accuracy"
   }
 ]
