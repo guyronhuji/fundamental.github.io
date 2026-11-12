@@ -61,7 +61,10 @@
     "title": "Ynet covers the Nature breast-cancer blood test",
     "content": "Ynet (Hebrew) features the group's new Nature paper with the Shema Lab at the Weizmann Institute. The article describes how the Ron group approached the single-molecule EPINUC data as an experimental physics problem, using computational tools to find the epigenetic patterns that flag early breast cancer (95% accuracy for tumours under 2 cm) and predict recurrence. Prof. Guy Ron explains that the more prevalent the aggressive cells' epigenetic signature is in a patient's blood, the higher the risk of relapse, allowing 81% accuracy in separating patients whose cancer returned from those who stayed disease-free.",
     "category": "announcement",
-    "link": "https://www.ynet.co.il/health/article/bksnnvlaze"
+    "link": "https://www.ynet.co.il/health/article/bksnnvlaze",
+    "image": "/images/News/nature-breast-cancer-team.jpg",
+    "imageAlt": "The research team behind the Nature breast-cancer study, standing outdoors at the Weizmann Institute",
+    "imageCredit": "Photo: Weizmann Institute of Science"
   },
   {
     "date": "2026-11-11",
