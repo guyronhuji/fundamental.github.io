@@ -4,7 +4,7 @@
 ## Overview
 Our lab combines single‑cell and single‑molecule assays with statistical learning to study cancer epigenetics and therapy response. We routinely integrate scCUT&Tag/ChIC (e.g., H3K4me1, H3K9me2/3), scRNA‑seq, scATAC‑seq, CyTOF‑based epigenetic cytometry, and liquid‑biopsy readouts (EPINUC-like plasma nucleosome profiling), building harmonized analysis pipelines across modalities. Inspired by, and in close collaboration with, the [Shema Lab](https://www.weizmann.ac.il/dept/irb/shema/) at the Weizmann Institute of Science, particularly on single‑cell epigenetic analysis of tumors, multi‑parametric plasma nucleosome assays, and disease‑focused epigenetic rewiring, we emphasize rigorous, quantitative integration that can translate to the clinic. 
 
-Our 2026 *Nature* paper with the Shema Lab, [*Epigenetic heterogeneity in breast tumours informs diagnosis and prognosis*](https://doi.org/10.1038/s41586-026-11230-y), applies this programme to detecting early-stage breast cancer from plasma. For a plain-language walk-through of the work, Guy Ron discussed it on Israel Army Radio — [listen on our outreach page](/activism/outreach) (8 min 30 s, in Hebrew).
+Our 2026 *Nature* paper with the Shema Lab, [*Epigenetic heterogeneity in breast tumours informs diagnosis and prognosis*](https://doi.org/10.1038/s41586-026-11230-y), applies this programme to detecting early-stage breast cancer from plasma. For a plain-language walk-through of the work, Guy Ron discussed it on Galey Tzahal — [listen on our outreach page](/activism/outreach) (8 min 30 s, in Hebrew).
 
 ## Focus Areas
 

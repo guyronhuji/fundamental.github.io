@@ -8,7 +8,7 @@ We share our research with the public through:
 
 ## In the Media
 
-### Galei Tzahal (Israel Army Radio) — *Korach & Sharki*, 12 November 2026
+### Galey Tzahal — *Korach & Sharki*, 12 November 2026
 
 Guy Ron talks with the hosts of **קורח ושרקי** about our new *Nature* paper with the
 Shema Lab at the Weizmann Institute: how an epigenetic liquid biopsy picks up
@@ -22,7 +22,7 @@ method and routine clinical use.
   Your browser cannot play this file &mdash; <a href="/audio/glz-korach-sharki-2026-11-12.mp3">download the interview (MP3, 8.2&nbsp;MB)</a>.
 </audio>
 
-Broadcast on Galei Tzahal; segment reproduced here by courtesy of the programme.
+Broadcast on Galey Tzahal; segment reproduced here by courtesy of the programme.
 The underlying paper is [*Epigenetic heterogeneity in breast tumours informs diagnosis
 and prognosis*](https://doi.org/10.1038/s41586-026-11230-y) (*Nature*, 2026), and the
 press coverage is collected on our [news page](/news).
