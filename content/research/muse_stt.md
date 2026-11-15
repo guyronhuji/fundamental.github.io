@@ -1,6 +1,8 @@
 # MUSE (MUon Scattering Experiment)
 <img style="float: right;" src="/images/MUSE/Platform.jpg" alt="The MUSE Platform" width="200"/>
 
+*New to this field? Start with our plain-language explainer: [What is the proton radius puzzle?](/explainers/proton-radius-puzzle/)*
+
 ## Why MUSE?
 The **MUSE** experiment measures elastic scattering of **muons and electrons (both charges)** from protons at low momenta. By comparing $ \mu^\pm p $ and $ e^\pm p $ cross sections and angular distributions in a common apparatus, MUSE tests **lepton universality**, quantifies **two‑photon–exchange** effects, and extracts the **proton charge radius** from space‑like momentum transfers. This precision, low‑energy approach complements high‑energy collider searches by probing tiny deviations from the Standard Model through nucleon structure.
 

@@ -52,6 +52,12 @@ press coverage is collected on our [news page](/news).
 
 - Contact us for lab tours, demos, and public talks.
 
-## Materials
+## Explainers
 
-- Slide decks and activity guides will be shared here as they are prepared.
+Short answers to questions we are often asked, written for readers with no science background.
+
+- [What is a liquid biopsy?](/explainers/liquid-biopsy/) How a blood sample can carry traces of a tumour, and what can and cannot be read from it.
+- [What is epigenetics?](/explainers/epigenetics/) The chemical marks that tell a cell which genes to use, and what they have to do with cancer.
+- [Why do physicists study cancer?](/explainers/physicists-and-cancer/) Why a nuclear-physics group works on tumour data, and what physics methods bring to biology.
+- [What is the proton radius puzzle?](/explainers/proton-radius-puzzle/) Why measurements of the proton's size disagreed, and how the MUSE experiment tests it.
+- [What is physics beyond the Standard Model?](/explainers/beyond-the-standard-model/) Why our best theory of particles is known to be incomplete, and how precise measurements search for what is missing.

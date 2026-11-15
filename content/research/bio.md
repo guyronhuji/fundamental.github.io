@@ -1,6 +1,8 @@
 # Computational Biology and Cancer Epigenetics
 > **Mission:** We develop data-driven methods to decode how chromatin state, DNA methylation, and transcriptional programs shape tumor behavior — and we turn these insights into robust diagnostics and decision-support tools.
 
+*New to this field? Start with our plain-language explainers: [What is epigenetics?](/explainers/epigenetics/), [What is a liquid biopsy?](/explainers/liquid-biopsy/) and [Why do physicists study cancer?](/explainers/physicists-and-cancer/)*
+
 ## Overview
 Our lab combines single‑cell and single‑molecule assays with statistical learning to study cancer epigenetics and therapy response. We routinely integrate scCUT&Tag/ChIC (e.g., H3K4me1, H3K9me2/3), scRNA‑seq, scATAC‑seq, CyTOF‑based epigenetic cytometry, and liquid‑biopsy readouts (EPINUC-like plasma nucleosome profiling), building harmonized analysis pipelines across modalities. Inspired by, and in close collaboration with, the [Shema Lab](https://www.weizmann.ac.il/dept/irb/shema/) at the Weizmann Institute of Science, particularly on single‑cell epigenetic analysis of tumors, multi‑parametric plasma nucleosome assays, and disease‑focused epigenetic rewiring, we emphasize rigorous, quantitative integration that can translate to the clinic. 
 

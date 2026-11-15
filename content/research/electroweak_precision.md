@@ -2,6 +2,8 @@
 # ElectroWeak Precision Experiments at HUJI
 
 
+*New to this field? Start with our plain-language explainer: [What is physics beyond the Standard Model?](/explainers/beyond-the-standard-model/)*
+
 ## Why Precision at Low Energies?
 The Standard Model (SM) has been spectacularly successful, yet it is incomplete: neutrino masses, the matter–antimatter asymmetry, and the ad‑hoc nature of many SM parameters all point to **physics beyond the Standard Model (BSM)**. While the energy frontier searches directly for new particles, **the precision (low‑energy) frontier** looks for tiny, theoretically clean deviations from SM predictions in electroweak processes. These measurements are sensitive to effective couplings that scale like $C_X^{(\ell)} \sim (v/\Lambda)^2$, so reaching sensitivities at the $10^{-3}$ level can probe new‑physics scales of $5\text{–}10\ \mathrm{TeV}$, complementary to collider constraints. Our program targets **beta decay and electron-capture observables**—spectra and correlation coefficients such as $a_{\beta\nu}$, the Fierz term $b_F$, and the neutrino asymmetry $B$—where theory is under excellent control and uncertainties can be quantified.
 
