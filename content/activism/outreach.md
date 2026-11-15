@@ -19,6 +19,16 @@ headlines is below; click the image for the full-size version.
 
 *Team photo: Ido Eitan. Coverage counted to 15 November 2026.*
 
+### *Looking for the few cells that matter* — Behind the Paper, 15 November 2026
+
+Guy Ron's first-person account of the *Nature* paper, written for the Springer Nature
+Research Communities: how a 2021 conversation with Efrat Shema brought a nuclear-physics
+group into breast-cancer research, what it took to find a small, aggressive cell
+population inside luminal tumours, and why the blood test is still a research tool
+rather than a clinical one.
+
+[Read the essay on Springer Nature Research Communities](https://communities.springernature.com/posts/looking-for-the-few-cells-that-matter)
+
 ### Galey Tzahal — *Korach & Sharki*, 12 November 2026
 
 Guy Ron talks with the hosts of **קורח ושרקי** about our new *Nature* paper with the

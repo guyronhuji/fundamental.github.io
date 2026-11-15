@@ -91,5 +91,12 @@
     "image": "/images/News/nature-coverage-2026-11.webp",
     "imageAlt": "Collage of news headlines about the Nature breast-cancer blood test from outlets in Israel, the USA, Argentina, China, Germany, France, Kazakhstan, Italy, Brazil and Romania, beside a photo of the research team and the totals: 30+ news stories, 13 countries, 9 languages",
     "imageCredit": "Team photo: Ido Eitan. Coverage counted to 15 November 2026."
+  },
+  {
+    "date": "2026-11-15",
+    "title": "Behind the Paper: Looking for the few cells that matter",
+    "content": "Guy Ron has written a first-person essay about the group's Nature paper for the Springer Nature Research Communities \"Behind the Paper\" series. It tells how a 2021 conversation with Efrat Shema of the Weizmann Institute brought a nuclear-physics group into breast-cancer research, how the team found a small, aggressive cell population inside luminal tumours and traced its epigenetic marks into the blood, and why the resulting test is still a research tool and not yet a clinical one.",
+    "category": "announcement",
+    "link": "https://communities.springernature.com/posts/looking-for-the-few-cells-that-matter"
   }
 ]
