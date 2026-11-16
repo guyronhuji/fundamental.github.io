@@ -1,12 +1,14 @@
 # Prof. Guy Ron
 
+<img src="/images/Bio/guy-ron.webp" alt="Prof. Guy Ron, standing outdoors under a tree" width="600" height="750" class="bio-portrait" />
+
 **Full Professor of Physics**  
 Racah Institute of Physics<br>
 Hebrew University of Jerusalem<br> Jerusalem, Israel  
 
   
-🔗 ORCID: https://orcid.org/0000-0002-8129-7146  
-🔗 Google Scholar: https://scholar.google.com/citations?user=FmlMtP8AAAAJ  
+<p style="text-align: left">🔗 ORCID: <a href="https://orcid.org/0000-0002-8129-7146">https://orcid.org/0000-0002-8129-7146</a><br>
+🔗 Google Scholar: <a href="https://scholar.google.com/citations?user=FmlMtP8AAAAJ">https://scholar.google.com/citations?user=FmlMtP8AAAAJ</a></p>
 
 
 ---
