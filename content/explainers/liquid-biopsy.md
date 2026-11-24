@@ -1,5 +1,12 @@
 > **The short answer.** A liquid biopsy is a test that looks for signs of disease in a sample of body fluid, usually blood, instead of cutting out a piece of tissue. It works because cells, including tumour cells, constantly shed fragments of themselves into the bloodstream.
 
+<figure>
+<video src="/video/breast-cancer-blood-test.mp4" poster="/video/breast-cancer-blood-test-poster.jpg" aria-label="Video: how a blood test can detect early breast cancer and predict relapse">
+<track kind="captions" src="/video/breast-cancer-blood-test.en.vtt" srclang="en" label="English">
+</video>
+<figcaption>Video: how our blood test finds early breast cancer and flags the risk of relapse (2 min 30 s, with English captions). Made by Guy Ron.</figcaption>
+</figure>
+
 ## Why not just take a piece of the tumour?
 
 A standard biopsy means removing tissue with a needle or surgery. It tells doctors a great deal, but it has limits. It can be painful and risky, it can only be done once a lump has been found, and it samples one spot of a tumour that may differ from place to place. It is also hard to repeat every few months to check whether a treatment is working.
