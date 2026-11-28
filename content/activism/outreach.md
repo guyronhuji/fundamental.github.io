@@ -11,13 +11,13 @@ We share our research with the public through:
 ### The *Nature* breast-cancer paper in the press
 
 Our November 2026 *Nature* paper with the Shema Lab at the Weizmann Institute was
-covered in 60 news stories in 16 countries and 11 languages, from Ynet and the
-Times of Israel to Newsweek, Xinhua, Infobae, Lenta.ru and Naftemporiki. A selection of the
+covered in 132 news stories in 27 countries and 17 languages, from Ynet and the
+Times of Israel to Newsweek, Euronews, Infobae, Lenta.ru and South Korea's Maeil Shinmun. A selection of the
 headlines is below; click the image for the full-size version.
 
-[![Collage of news headlines about the Nature breast-cancer blood test, from Ynet, The Times of Israel (English and French), Newsweek, Infobae, Xinhua, Leinetal24, Lenta.ru, Comunità Ebraica di Verona, Tribuna PR, GoNews.ro and Naftemporiki. Beside them, a photo of the team (from left: Guy Ron, Efrat Shema, Yishai Arieli, Christina Riemenschneider, Noa Furth) and the totals: 60 news stories, 16 countries, 11 languages.](/images/News/nature-coverage-2026-11.webp)](/images/News/nature-coverage-2026-11.webp)
+[![Collage of news headlines about the Nature breast-cancer blood test in sixteen languages, from Ynet, Euronews Persian, Newsweek, Lenta.ru, Infobae, VietnamPlus, Leinetal24, Maeil Shinmun, The Times of Israel (French), Comunità Ebraica di Verona, Aidiagme, NIW, Tribuna PR, G4Media, Indeksonline and Liberal.gr. Beside them, a photo of the team (from left: Guy Ron, Efrat Shema, Yishai Arieli, Christina Riemenschneider, Noa Furth) and the totals: 132 news stories, 27 countries, 17 languages.](/images/News/nature-coverage-2026-11.webp)](/images/News/nature-coverage-2026-11.webp)
 
-*Team photo: Ido Eitan. Coverage counted to 16 November 2026.*
+*Team photo: Ido Eitan. Coverage counted to 28 November 2026.*
 
 ### *Looking for the few cells that matter* — Behind the Paper, 15 November 2026
 
